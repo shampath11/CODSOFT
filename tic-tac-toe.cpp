@@ -1,7 +1,6 @@
-/**** TIC-TAC-TOE 
-       GAME 
-                 */
-                
+/********  TIC-TAC-TOE 
+                    GAME
+                                */
 #include<iostream>
 #include<string>
 using namespace std;
@@ -47,6 +46,11 @@ int gameplay(){
         player1 = player2;
         player2 = str;
     }
+    else
+    {
+        player1 = " X", player2 = " O";
+    }
+    
     
     cout<<"player1: "<<player1<<endl;
     cout<<"player2: "<<player2<<endl;
@@ -259,13 +263,13 @@ int check(string player,int r, int c){
     int count = 0;
 
     //row check
-    if(row_check(player,c)) {
+    if(row_check(player,r)) {
         return 1;
     }
 
     
     //column check
-    else if (column_check(player,r))
+    else if (column_check(player,c))
     {
         return 1;
     }
@@ -320,7 +324,7 @@ int check(string player,int r, int c){
 }
 
 
-int row_check(string player,int c){
+int column_check(string player,int c){
     int count = 0;
     for(int i=0;i<5;i+=2){
         if(a[i][c] == player){
@@ -350,7 +354,7 @@ int row_check(string player,int c){
     }
 }
 
-int column_check(string player, int r){
+int row_check(string player, int r){
     int count = 0;
     for(int j =0;j<5;j+=2){
         if (a[r][j] == player)
